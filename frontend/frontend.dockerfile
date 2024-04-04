@@ -3,13 +3,13 @@ FROM node:21-alpine as dependencies
 
 WORKDIR /app
 COPY ./package*.json ./
-RUN npm install
+RUN npm ci
 
 # Stage 2: Build stage
 FROM node:21-alpine as builder
 WORKDIR /app
 COPY --from=dependencies /app/package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 
