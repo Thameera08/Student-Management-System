@@ -18,7 +18,7 @@ export const loginUser = (fields, role) => async (dispatch) => {
 
   try {
     const result = await axios.post(
-      `http://localhost:5000/${role}Login`,
+      `https://backsms.demonlab.xyz/${role}Login`,
       fields,
       {
         headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ export const registerUser = (fields, role) => async (dispatch) => {
 
   try {
     const result = await axios.post(
-      `http://localhost:5000/${role}Reg`,
+      `https://backsms.demonlab.xyz/${role}Reg`,
       fields,
       {
         headers: { "Content-Type": "application/json" },
@@ -65,7 +65,7 @@ export const getUserDetails = (id, address) => async (dispatch) => {
   dispatch(getRequest());
 
   try {
-    const result = await axios.get(`http://localhost:5000/${address}/${id}`);
+    const result = await axios.get(`https://backsms.demonlab.xyz/${address}/${id}`);
     if (result.data) {
       dispatch(doneSuccess(result.data));
     }
@@ -78,7 +78,7 @@ export const getUserDetails = (id, address) => async (dispatch) => {
 //     dispatch(getRequest());
 
 //     try {
-//         const result = await axios.delete(`http://localhost:5000/${address}/${id}`);
+//         const result = await axios.delete(`https://backsms.demonlab.xyz/${address}/${id}`);
 //         if (result.data.message) {
 //             dispatch(getFailed(result.data.message));
 //         } else {
@@ -99,7 +99,7 @@ export const updateUser = (fields, id, address) => async (dispatch) => {
 
   try {
     const result = await axios.put(
-      `http://localhost:5000/${address}/${id}`,
+      `https://backsms.demonlab.xyz/${address}/${id}`,
       fields,
       {
         headers: { "Content-Type": "application/json" },
@@ -120,7 +120,7 @@ export const addStuff = (fields, address) => async (dispatch) => {
 
   try {
     const result = await axios.post(
-      `http://localhost:5000/${address}Create`,
+      `https://backsms.demonlab.xyz/${address}Create`,
       fields,
       {
         headers: { "Content-Type": "application/json" },
